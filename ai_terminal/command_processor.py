@@ -1,6 +1,6 @@
 import os, pkgutil, importlib
 from typing import Dict, Tuple
-from commands.base import BaseCommand
+from ai_terminal.commands.base import BaseCommand
 
 class CommandProcessor:
     def __init__(self):
@@ -10,11 +10,11 @@ class CommandProcessor:
         self._load_commands()
 
     def _load_commands(self):
-        import commands
-        for _, module_name, _ in pkgutil.iter_modules(commands.__path__):
+        import ai_terminal.commands
+        for _, module_name, _ in pkgutil.iter_modules(ai_terminal.commands.__path__):
             if module_name == "base":
                 continue
-            module = importlib.import_module(f"commands.{module_name}")
+            module = importlib.import_module(f"ai_terminal.commands.{module_name}")
             for attr in dir(module):
                 obj = getattr(module, attr)
                 if isinstance(obj, type) and issubclass(obj, BaseCommand) and obj is not BaseCommand:

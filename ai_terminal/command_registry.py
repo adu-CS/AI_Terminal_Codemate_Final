@@ -1,8 +1,8 @@
 # command_registry.py
-from commands.base import BaseCommand
+from ai_terminal.commands.base import BaseCommand
 
 # Import all command modules
-from commands import touch, mkdir, ls, cat, cp, mv, top# Add more as needed
+from ai_terminal.commands import touch, mkdir, ls, cat, cp, mv, top  # Add more as needed
 
 COMMANDS = {}
 

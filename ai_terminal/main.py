@@ -1,8 +1,9 @@
-from command_processor import CommandProcessor
-from ai_command_processor import AICommandProcessor
-from command_registry import COMMANDS
+# main.py
+from ai_terminal.command_processor import CommandProcessor
+from ai_terminal.ai_command_processor import AICommandProcessor
+from ai_terminal.command_registry import COMMANDS
 
-if __name__ == "__main__":
+def run():
     executor = CommandProcessor()
     ai = AICommandProcessor()
 
@@ -48,3 +49,7 @@ if __name__ == "__main__":
             print("\nUse 'exit' to quit")
         except EOFError:
             break
+
+# Allow running directly as a script
+if __name__ == "__main__":
+    run()
